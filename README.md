@@ -2,11 +2,11 @@
 
 ## RESTful API specifications
 
-The specifications are defined following the (https://www.openapis.org)[OpenAPI Initiative] format standard.
+The specifications are defined following the [OpenAPI Initiative](https://www.openapis.org) format standard.
 
 ## Data exchange formats
 
 Main data exchange format is JSON.
-The specifications are defined following the (https://json-schema.org)[JSON schema] format standard.
+The specifications are defined following the [JSON schema](https://json-schema.org) format standard.
 
 ## Database schemas
