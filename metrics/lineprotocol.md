@@ -8,7 +8,7 @@ data.
 ```
 
 Supported measurements:
-* node – Tags: host, cpu
+* node – Tags: host
 * socket – Tags: host, socket
 * cpu -- Tags: host, cpu
 
