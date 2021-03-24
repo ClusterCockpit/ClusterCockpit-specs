@@ -9,4 +9,6 @@ The specifications are defined following the [OpenAPI Initiative](https://www.op
 Main data exchange format is JSON.
 The specifications are defined following the [JSON schema](https://json-schema.org) format standard.
 
-## Database schemas
+## Database schema
+
+Recommended minimal SQL database schema for job meta data.
