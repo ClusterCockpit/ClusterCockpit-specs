@@ -35,6 +35,39 @@
         "memory_bandwidth": {
             "description": "Theorethical node peak memory bandwidth in GB/s",
             "type": "integer"
+        },
+        "metric_config": {
+            "description": "Metric specifications",
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties":{
+                    "name": {
+                        "description": "Metric name",
+                        "type": "string"
+                    },
+                    "unit": {
+                        "description": "Metric unit",
+                        "type": "string"
+                    },
+                    "sampletime": {
+                        "description": "Frequency of timeseries points",
+                        "type": "integer"
+                    },
+                    "peak": {
+                        "type": "number"
+                    },
+                    "normal": {
+                        "type": "number"
+                    },
+                    "caution": {
+                        "type": "number"
+                    },
+                    "alert": {
+                        "type": "number"
+                    }
+                }
+            }
         }
     },
     "required":[
