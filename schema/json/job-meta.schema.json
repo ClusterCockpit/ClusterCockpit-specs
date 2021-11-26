@@ -91,7 +91,7 @@
                     "hostname": {
                         "type": "string"
                     },
-                    "hwthreads": {
+                    "cpus": {
                         "type": "array",
                         "description": "List of OS processor ids",
                         "items": {
