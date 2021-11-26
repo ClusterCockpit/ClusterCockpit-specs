@@ -6,7 +6,7 @@
     "properties": {
         "job_id": {
             "description": "The unique identifier of a job",
-            "type": "string"
+            "type": "integer"
         },
         "user_id": {
             "description": "The unique identifier of a user",
@@ -20,13 +20,35 @@
             "description": "The unique identifier of a cluster",
             "type": "string"
         },
+        "partition": {
+            "description": "The queue to which the job was submitted",
+            "type": "string"
+        },
+        "array_id": {
+            "description": "The unique identifier of an array job",
+            "type": "integer"
+        },
         "num_nodes": {
             "description": "Number of nodes used",
             "type": "integer",
             "exclusiveMinimum": 0
         },
+        "num_hwthreads": {
+            "description": "Number of HWThreads used",
+            "type": "integer",
+            "exclusiveMinimum": 0
+        },
+        "num_gpus": {
+            "description": "Number of GPUs used",
+            "type": "integer",
+            "exclusiveMinimum": 0
+        },
         "exclusive": {
             "description": "Job uses only exclusive nodes",
+            "type": "boolean"
+        },
+        "smt": {
+            "description": "Job uses smt feature",
             "type": "boolean"
         },
         "walltime": {
@@ -41,6 +63,7 @@
                 "completed",
                 "failed",
                 "canceled",
+                "stopped",
                 "timeout"
             ]
         },
@@ -59,14 +82,34 @@
             "type": "integer",
             "exclusiveMinimum": 0
         },
-        "nodes": {
-            "description": "List of nodes",
+        "resources": {
+            "description": "Resources used by job",
             "type": "array",
             "items": {
-                "type": "string"
-            },
-            "minItems": 1,
-            "uniqueItems": true
+                "type": "object",
+                "properties": {
+                    "hostname": {
+                        "type": "string"
+                    },
+                    "hwthreads": {
+                        "type": "array",
+                        "description": "List of OS processor ids",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "gpus": {
+                        "type": "array",
+                        "description": "List of of gpu device addresses",
+                        "items": {
+                            "type": "integer"
+                        }
+                    },
+                    "required": [
+                        "hostname"
+                    ]
+                },
+            "minItems": 1
         },
         "tags": {
             "description": "List of tags",
@@ -215,6 +258,7 @@
             },
             "required": [
                 "mem_used",
+                "cpu_used",
                 "flops_any",
                 "mem_bw",
                 "net_bw",
@@ -231,7 +275,7 @@
         "start_time",
         "stop_time",
         "duration",
-        "nodes",
+        "resources",
         "tags",
         "statistics"
     ]

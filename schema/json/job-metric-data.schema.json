@@ -5,16 +5,15 @@
     "type": "object",
     "properties": {
         "unit": {
-            "description": "",
             "type": "string"
         },
         "scope": {
-            "description": "",
             "type": "string",
             "enum": [
                 "node",
                 "cpu",
-                "socket"
+                "socket",
+                "gpu"
             ]
         },
         "timestep": {
@@ -40,12 +39,11 @@
             }
         },
         "series": {
-            "description": "",
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
-                    "node_id": {
+                    "hostname": {
                         "type": "string"
                     },
                     "id": {
@@ -86,7 +84,7 @@
                     }
                 },
                 "required": [
-                    "node_id",
+                    "hostname",
                     "data"
                 ]
             }

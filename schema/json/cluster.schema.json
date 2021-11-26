@@ -25,15 +25,15 @@
             "type": "integer"
         },
         "flop_rate_scalar": {
-            "description": "Theorethical node peak flop rate for scalar code in GFlops/s",
+            "description": "Theoretical node peak flop rate for scalar code in GFlops/s",
             "type": "integer"
         },
         "flop_rate_simd": {
-            "description": "Theorethical node peak flop rate for SIMD code in GFlops/s",
+            "description": "Theoretical node peak flop rate for SIMD code in GFlops/s",
             "type": "integer"
         },
         "memory_bandwidth": {
-            "description": "Theorethical node peak memory bandwidth in GB/s",
+            "description": "Theoretical node peak memory bandwidth in GB/s",
             "type": "integer"
         },
         "metric_config": {
