@@ -24,7 +24,7 @@
             "description": "The queue to which the job was submitted",
             "type": "string"
         },
-        "array_id": {
+        "array_job_id": {
             "description": "The unique identifier of an array job",
             "type": "integer"
         },
@@ -38,14 +38,14 @@
             "type": "integer",
             "exclusiveMinimum": 0
         },
-        "num_gpus": {
-            "description": "Number of GPUs used",
+        "num_accelerators": {
+            "description": "Number of accelerators used",
             "type": "integer",
             "exclusiveMinimum": 0
         },
         "exclusive": {
             "description": "Job uses only exclusive nodes",
-            "type": "boolean"
+            "type": "integer"
         },
         "smt": {
             "description": "Job uses smt feature",
@@ -91,16 +91,16 @@
                     "hostname": {
                         "type": "string"
                     },
-                    "cpus": {
+                    "hwthreads": {
                         "type": "array",
                         "description": "List of OS processor ids",
                         "items": {
                             "type": "integer"
                         }
                     },
-                    "gpus": {
+                    "accelerators": {
                         "type": "array",
-                        "description": "List of of gpu device addresses",
+                        "description": "List of of accelerator device addresses",
                         "items": {
                             "type": "integer"
                         }

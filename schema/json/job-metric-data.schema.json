@@ -11,9 +11,11 @@
             "type": "string",
             "enum": [
                 "node",
-                "cpu",
+                "hwthread",
+                "memory",
+                "die",
                 "socket",
-                "gpu"
+                "accelerator"
             ]
         },
         "timestep": {

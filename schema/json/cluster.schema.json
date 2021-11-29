@@ -36,6 +36,24 @@
             "description": "Theoretical node peak memory bandwidth in GB/s",
             "type": "integer"
         },
+        "metric_data_repository": {
+            "description": "Type of the metric data repository for this cluster",
+            "type": "object",
+            "properties": {
+                "kind": {
+                    "type": "string",
+                    "enum": [
+                        "influxdb-v1",
+                        "influxdb-v2",
+                        "prometheus",
+                        "cc-metric-store"
+                    ]
+                },
+                "url": {
+                    "type": "string"
+                }
+            }
+        },
         "metric_config": {
             "description": "Metric specifications",
             "type": "array",
@@ -50,7 +68,7 @@
                         "description": "Metric unit",
                         "type": "string"
                     },
-                    "sampletime": {
+                    "timestep": {
                         "description": "Frequency of timeseries points",
                         "type": "integer"
                     },
@@ -67,7 +85,16 @@
                         "type": "number"
                     }
                 }
-            }
+            },
+            "required":[
+                "name",
+                "unit",
+                "timestep",
+                "peak",
+                "normal",
+                "caution",
+                "alert"
+            ]
         }
     },
     "required":[
@@ -78,6 +105,8 @@
         "threads_per_core",
         "flop_rate_scalar",
         "flop_rate_simd",
-        "memory_bandwidth"
+        "memory_bandwidth",
+        "metric_data_repository",
+        "metric_config"
     ]
 }
