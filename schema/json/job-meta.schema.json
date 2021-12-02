@@ -8,15 +8,15 @@
             "description": "The unique identifier of a job",
             "type": "integer"
         },
-        "user_id": {
+        "user": {
             "description": "The unique identifier of a user",
             "type": "string"
         },
-        "project_id": {
+        "project": {
             "description": "The unique identifier of a project",
             "type": "string"
         },
-        "cluster_id": {
+        "cluster": {
             "description": "The unique identifier of a cluster",
             "type": "string"
         },
@@ -38,7 +38,7 @@
             "type": "integer",
             "exclusiveMinimum": 0
         },
-        "num_accelerators": {
+        "num_acc": {
             "description": "Number of accelerators used",
             "type": "integer",
             "exclusiveMinimum": 0
@@ -47,9 +47,13 @@
             "description": "Job uses only exclusive nodes",
             "type": "integer"
         },
+        "monitoring_status": {
+            "description": "State of monitoring system during job run",
+            "type": "string"
+        },
         "smt": {
-            "description": "Job uses smt feature",
-            "type": "boolean"
+            "description": "SMT threads used by job",
+            "type": "integer"
         },
         "walltime": {
             "description": "Requested walltime of job in seconds",
@@ -100,16 +104,59 @@
                     },
                     "accelerators": {
                         "type": "array",
-                        "description": "List of of accelerator device addresses",
+                        "description": "List of of accelerator devices",
                         "items": {
-                            "type": "integer"
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "The unique device id"
+                                },
+                                "type": {
+                                    "type": "string",
+                                    "description": "The accelerator type",
+                                    "enum": [
+                                        "Nvidia GPU",
+                                        "AMD GPU",
+                                        "Intel GPU"
+                                    ]
+                                },
+                                "model": {
+                                    "type": "string",
+                                    "description": "The accelerator model"
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "type",
+                                "model"
+                            ]
                         }
+                    },
+                    "configuration": {
+                        "type": "string",
+                        "description": "The configuration options of the node"
                     },
                     "required": [
                         "hostname"
                     ]
                 },
-            "minItems": 1
+                "minItems": 1
+            }
+        },
+        "meta_data": {
+            "description": "Additional information about the job",
+            "type": "object",
+            "properties": {
+                "job_script": {
+                    "type": "string",
+                    "description": "The batch script of the job"
+                },
+                "slurmdata": {
+                    "type": "string",
+                    "description": "Additional Slurm information"
+                }
+            }
         },
         "tags": {
             "description": "List of tags",
@@ -139,6 +186,10 @@
                     "description": "Memory capacity used (required)",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
+                "cpu_load": {
+                    "description": "CPU requested core utilization (load 1m) (required)",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
                 "flops_any": {
                     "description": "Total flop rate with DP flops scaled up (required)",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
@@ -160,7 +211,7 @@
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
                 "cpu_used": {
-                    "description": "CPU core utilization",
+                    "description": "CPU active core utilization",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
                 "flops_dp": {
@@ -199,66 +250,86 @@
                     "description": "Ethernet write bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_read_bw": {
-                    "description": "Lustre read bandwidth",
+                "pfs_read_bw": {
+                    "description": "Parallel file system read bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_write_bw": {
-                    "description": "Lustre write bandwidth",
+                "pfs_write_bw": {
+                    "description": "Parallel file system write bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_read_req": {
-                    "description": "Lustre read requests",
+                "pfs_read_req": {
+                    "description": "Parallel file system read requests",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_write_req": {
-                    "description": "Lustre write requests",
+                "pfs_write_req": {
+                    "description": "Parallel file system write requests",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_inodes": {
-                    "description": "Lustre inodes used",
+                "pfs_inodes": {
+                    "description": "Parallel file system inodes used",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_accesses": {
-                    "description": "Lustre open and close",
+                "pfs_accesses": {
+                    "description": "Parallel file system open and close",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_fsync": {
-                    "description": "Lustre fsync",
+                "pfs_fsync": {
+                    "description": "Parallel file system fsync",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_create": {
-                    "description": "Lustre create",
+                "pfs_create": {
+                    "description": "Parallel file system create",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_open": {
-                    "description": "Lustre open",
+                "pfs_open": {
+                    "description": "Parallel file system open",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_close": {
-                    "description": "Lustre close",
+                "pfs_close": {
+                    "description": "Parallel file system close",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "lustre_seek": {
-                    "description": "Lustre seek",
+                "pfs_seek": {
+                    "description": "Parallel file system seek",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "ib_read_bw": {
-                    "description": "Infiniband read bandwidth",
+                "fs_read_bw": {
+                    "description": "Local file system read bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "ib_write_bw": {
-                    "description": "Infiniband write bandwidth",
+                "fs_write_bw": {
+                    "description": "Local file system write bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 },
-                "ib_congestion": {
-                    "description": "Infiniband congestion",
+                "fs_inodes": {
+                    "description": "Local file system inodes used",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
+                "fs_accesses": {
+                    "description": "Local file system open and close",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
+                "ic_rcv_packets": {
+                    "description": "Network interconnect read packets",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
+                "ic_send_packets": {
+                    "description": "Network interconnect send packet",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
+                "ic_read_bw": {
+                    "description": "Network interconnect read bandwidth",
+                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                },
+                "ic_write_bw": {
+                    "description": "Network interconnect write bandwidth",
                     "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
                 }
             },
             "required": [
                 "mem_used",
-                "cpu_used",
+                "cpu_load",
                 "flops_any",
                 "mem_bw",
                 "net_bw",

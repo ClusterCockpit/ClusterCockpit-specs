@@ -12,7 +12,8 @@
             "enum": [
                 "node",
                 "hwthread",
-                "memory",
+                "core",
+                "memoryDomain",
                 "die",
                 "socket",
                 "accelerator"
