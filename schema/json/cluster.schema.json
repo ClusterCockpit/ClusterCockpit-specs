@@ -4,43 +4,43 @@
     "description": "Meta data information of a HPC cluster",
     "type": "object",
     "properties":{
-        "cluster_id": {
+        "ClusterId": {
             "description": "The unique identifier of a cluster",
             "type": "string"
         },
-        "processor_type": {
+        "ProcessorType": {
             "description": "Processor type",
             "type": "string"
         },
-        "sockets_per_node": {
+        "SocketsPerNode": {
             "description": "Number of sockets per node",
             "type": "integer"
         },
-        "cores_per_socket": {
+        "CoresPerSocket": {
             "description": "Number of cores per socket",
             "type": "integer"
         },
-        "threads_per_core": {
+        "ThreadsPerCore": {
             "description": "Number of SMT threads per core",
             "type": "integer"
         },
-        "flop_rate_scalar": {
+        "FlopRateScalar": {
             "description": "Theoretical node peak flop rate for scalar code in GFlops/s",
             "type": "integer"
         },
-        "flop_rate_simd": {
+        "FlopRateSimd": {
             "description": "Theoretical node peak flop rate for SIMD code in GFlops/s",
             "type": "integer"
         },
-        "memory_bandwidth": {
+        "MemoryBandwidth": {
             "description": "Theoretical node peak memory bandwidth in GB/s",
             "type": "integer"
         },
-        "metric_data_repository": {
+        "MetricDataRepository": {
             "description": "Type of the metric data repository for this cluster",
             "type": "object",
             "properties": {
-                "kind": {
+                "Kind": {
                     "type": "string",
                     "enum": [
                         "influxdb-v1",
@@ -49,64 +49,71 @@
                         "cc-metric-store"
                     ]
                 },
-                "url": {
+                "Url": {
+                    "type": "string"
+                },
+                "Token": {
                     "type": "string"
                 }
-            }
+            },
+            "required": [
+                "Kind",
+                "Url"
+            ]
         },
-        "metric_config": {
+        "MetricConfig": {
             "description": "Metric specifications",
             "type": "array",
             "items": {
                 "type": "object",
                 "properties":{
-                    "name": {
+                    "Name": {
                         "description": "Metric name",
                         "type": "string"
                     },
-                    "unit": {
+                    "Unit": {
                         "description": "Metric unit",
                         "type": "string"
                     },
-                    "timestep": {
+                    "Timestep": {
                         "description": "Frequency of timeseries points",
                         "type": "integer"
                     },
-                    "peak": {
+                    "Peak": {
                         "type": "number"
                     },
-                    "normal": {
+                    "Normal": {
                         "type": "number"
                     },
-                    "caution": {
+                    "Caution": {
                         "type": "number"
                     },
-                    "alert": {
+                    "Alert": {
                         "type": "number"
                     }
                 }
             },
             "required":[
-                "name",
-                "unit",
-                "timestep",
-                "peak",
-                "normal",
-                "caution",
-                "alert"
+                "Name",
+                "Unit",
+                "Timestep",
+                "Peak",
+                "Normal",
+                "Caution",
+                "Alert"
             ]
         }
     },
     "required":[
-        "cluster_id",
-        "processor_type",
-        "sockets_per_node",
-        "cores_per_socket",
-        "threads_per_core",
-        "flop_rate_scalar",
-        "flop_rate_simd",
-        "memory_bandwidth",
-        "metric_data_repository",
-        "metric_config"
+        "ClusterId",
+        "ProcessorType",
+        "SocketsPerNode",
+        "CoresPerSocket",
+        "ThreadsPerCore",
+        "FlopRateScalar",
+        "FlopRateSimd",
+        "MemoryBandwidth",
+        "MetricDataRepository",
+        "MetricConfig"
     ]
 }

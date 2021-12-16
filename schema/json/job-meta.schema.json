@@ -49,7 +49,7 @@
         },
         "monitoring_status": {
             "description": "State of monitoring system during job run",
-            "type": "string"
+            "type": "integer"
         },
         "smt": {
             "description": "SMT threads used by job",
@@ -184,147 +184,147 @@
             "properties": {
                 "mem_used": {
                     "description": "Memory capacity used (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "cpu_load": {
                     "description": "CPU requested core utilization (load 1m) (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "flops_any": {
                     "description": "Total flop rate with DP flops scaled up (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "mem_bw": {
                     "description": "Main memory bandwidth (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "net_bw": {
                     "description": "Total fast interconnect network bandwidth (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "file_bw": {
                     "description": "Total file IO bandwidth (required)",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "ipc": {
                     "description": "Instructions executed per cycle",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "cpu_used": {
                     "description": "CPU active core utilization",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "flops_dp": {
                     "description": "Double precision flop rate",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "flops_sp": {
                     "description": "Single precision flops rate",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "rapl_power": {
                     "description": "CPU power consumption",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "gpu_used": {
                     "description": "GPU utilization",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "gpu_mem_used": {
                     "description": "GPU memory capacity used",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "gpu_power": {
                     "description": "GPU power consumption",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "clock": {
                     "description": "Average core frequency",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "eth_read_bw": {
                     "description": "Ethernet read bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "eth_write_bw": {
                     "description": "Ethernet write bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_read_bw": {
                     "description": "Parallel file system read bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_write_bw": {
                     "description": "Parallel file system write bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_read_req": {
                     "description": "Parallel file system read requests",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_write_req": {
                     "description": "Parallel file system write requests",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_inodes": {
                     "description": "Parallel file system inodes used",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_accesses": {
                     "description": "Parallel file system open and close",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_fsync": {
                     "description": "Parallel file system fsync",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_create": {
                     "description": "Parallel file system create",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_open": {
                     "description": "Parallel file system open",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_close": {
                     "description": "Parallel file system close",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "pfs_seek": {
                     "description": "Parallel file system seek",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "fs_read_bw": {
                     "description": "Local file system read bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "fs_write_bw": {
                     "description": "Local file system write bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "fs_inodes": {
                     "description": "Local file system inodes used",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "fs_accesses": {
                     "description": "Local file system open and close",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "ic_rcv_packets": {
                     "description": "Network interconnect read packets",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "ic_send_packets": {
                     "description": "Network interconnect send packet",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "ic_read_bw": {
                     "description": "Network interconnect read bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 },
                 "ic_write_bw": {
                     "description": "Network interconnect write bandwidth",
-                    "#ref": "https://github.com/RRZE-HPC/HPCJobDatabase/blob/master/json-schema/job-statistic.schema.json"
+                    "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
             },
             "required": [
