@@ -4,10 +4,10 @@
     "description": "Metric data of a HPC job",
     "type": "object",
     "properties": {
-        "Unit": {
-            "type": "string"
+        "unit": {
+            "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/unit.schema.json"
         },
-        "Scope": {
+        "scope": {
             "type": "string",
             "enum": [
                 "node",
@@ -19,62 +19,62 @@
                 "accelerator"
             ]
         },
-        "Timestep": {
+        "timestep": {
             "description": "Measurement interval in seconds",
             "type": "integer"
         },
-        "Thresholds": {
+        "thresholds": {
             "description": "Metric thresholds for specific system",
             "type": "object",
             "properties": {
-                "Peak": {
+                "peak": {
                     "type": "number"
                 },
-                "Normal": {
+                "normal": {
                     "type": "number"
                 },
-                "Caution": {
+                "caution": {
                     "type": "number"
                 },
-                "Alert": {
+                "alert": {
                     "type": "number"
                 }
             }
         },
-        "Series": {
+        "series": {
             "type": "array",
             "items": {
                 "type": "object",
                 "properties": {
-                    "Hostname": {
+                    "hostname": {
                         "type": "string"
                     },
-                    "Id": {
+                    "id": {
                         "type": "integer"
                     },
-                    "Statistics": {
+                    "statistics": {
                         "type": "object",
                         "properties": {
-                            "Avg": {
+                            "avg": {
                                 "description": "Series average",
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "Min": {
+                            "min": {
                                 "description": "Series minimum",
                                 "type": "number",
                                 "minimum": 0
                             },
-                            "Max": {
+                            "max": {
                                 "description": "Series maximum",
                                 "type": "number",
                                 "minimum": 0
                             }
                         },
                         "required": [
-                            "Avg",
-                            "Min",
-                            "Max"
+                            "avg",
+                            "min",
+                            "max"
                         ]
                     },
                     "data": {
@@ -87,16 +87,16 @@
                     }
                 },
                 "required": [
-                    "Hostname",
-                    "Data"
+                    "hostname",
+                    "data"
                 ]
             }
         }
     },
     "required": [
-        "Unit",
-        "Scope",
-        "Timestep",
-        "Series"
+        "unit",
+        "scope",
+        "timestep",
+        "series"
     ]
 }
