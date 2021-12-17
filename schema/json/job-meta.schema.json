@@ -21,8 +21,8 @@
             "type": "string"
         },
         "partition": {
-            "description": "The cluster partition to which the job was submitted",
-            "type": "string"
+            "description": "The cluster partition id to which the job was submitted",
+            "type": "integer"
         },
         "arrayJobId": {
             "description": "The unique identifier of an array job",

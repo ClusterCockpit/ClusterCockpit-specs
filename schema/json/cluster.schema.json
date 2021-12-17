@@ -47,6 +47,10 @@
                         "description": "Metric unit",
                         "type": "string"
                     },
+                    "scope": {
+                        "description": "Native measurement resolution",
+                        "type": "string"
+                    },
                     "timestep": {
                         "description": "Frequency of timeseries points",
                         "type": "integer"
