@@ -11,7 +11,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "flops_any": {
             "description": "Total flop rate with DP flops scaled up (required)",
@@ -31,7 +34,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "mem_bw": {
             "description": "Main memory bandwidth (required)",
@@ -45,7 +51,10 @@
                 "memoryDomain": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "net_bw": {
             "description": "Total fast interconnect network bandwidth (required)",
@@ -54,7 +63,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "file_bw": {
             "description": "Total file IO bandwidth (required)",
@@ -63,7 +75,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "ipc": {
             "description": "Instructions executed per cycle",
@@ -83,7 +98,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "cpu_used": {
             "description": "CPU active core utilization",
@@ -103,7 +121,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "cpu_load": {
             "description": "CPU requested core utilization (load 1m)",
@@ -123,7 +144,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "flops_dp": {
             "description": "Double precision flop rate",
@@ -143,7 +167,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "flops_sp": {
             "description": "Single precision flops rate",
@@ -163,7 +190,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "vectorization_ratio": {
             "description": "Fraction of arithmetic instructions using SIMD instructions",
@@ -183,7 +213,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "cpu_power": {
             "description": "CPU power consumption",
@@ -194,7 +227,10 @@
                 "socket": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "mem_power": {
             "description": "Memory power consumption",
@@ -205,7 +241,10 @@
                 "socket": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "acc_utilization": {
             "description": "GPU utilization",
@@ -213,7 +252,10 @@
                 "accelerator": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "acc_mem_used": {
             "description": "GPU memory capacity used",
@@ -221,7 +263,10 @@
                 "accelerator": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "acc_power": {
             "description": "GPU power consumption",
@@ -229,7 +274,10 @@
                 "accelerator": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "clock": {
             "description": "Average core frequency",
@@ -249,7 +297,10 @@
                 "hwthread": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "eth_read_bw": {
             "description": "Ethernet read bandwidth",
@@ -257,7 +308,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "eth_write_bw": {
             "description": "Ethernet write bandwidth",
@@ -265,7 +319,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_read_bw": {
             "description": "Parallel file system read bandwidth",
@@ -273,7 +330,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_write_bw": {
             "description": "Parallel file system write bandwidth",
@@ -281,7 +341,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_read_req": {
             "description": "Parallel file system read requests",
@@ -289,7 +352,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_write_req": {
             "description": "Parallel file system write requests",
@@ -297,7 +363,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_inodes": {
             "description": "Parallel file system inodes used",
@@ -305,7 +374,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_accesses": {
             "description": "Parallel file system open and close",
@@ -313,7 +385,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_fsync": {
             "description": "Parallel file system fsync",
@@ -321,7 +396,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_create": {
             "description": "Parallel file system create",
@@ -329,7 +407,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_open": {
             "description": "Parallel file system open",
@@ -337,7 +418,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_close": {
             "description": "Parallel file system close",
@@ -345,7 +429,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "pfs_seek": {
             "description": "Parallel file system seek",
@@ -353,7 +440,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "fs_read_bw": {
             "description": "Local file system read bandwidth",
@@ -361,7 +451,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "fs_write_bw": {
             "description": "Local file system write bandwidth",
@@ -369,7 +462,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "fs_inodes": {
             "description": "Local file system inodes used",
@@ -377,7 +473,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "fs_accesses": {
             "description": "Local file system open and close",
@@ -385,7 +484,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "ic_rcv_packets": {
             "description": "Network interconnect read packets",
@@ -393,7 +495,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "ic_send_packets": {
             "description": "Network interconnect send packet",
@@ -401,7 +506,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "ic_read_bw": {
             "description": "Network interconnect read bandwidth",
@@ -409,7 +517,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         },
         "ic_write_bw": {
             "description": "Network interconnect write bandwidth",
@@ -417,7 +528,10 @@
                 "node": {
                     "#ref": "https://github.com/ClusterCockpit/cc-specifications/blob/master/schema/json/job-metric-data.schema.json"
                 }
-            }
+            },
+            "required": [
+                "nodes"
+            ]
         }
     },
     "required": [
