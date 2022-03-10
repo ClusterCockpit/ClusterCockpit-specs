@@ -20,9 +20,13 @@
             "description": "The unique identifier of a cluster",
             "type": "string"
         },
+        "subCluster": {
+            "description": "The unique identifier of a sub cluster",
+            "type": "string"
+        },
         "partition": {
             "description": "The Slurm partition to which the job was submitted",
-            "type": "integer"
+            "type": "string"
         },
         "arrayJobId": {
             "description": "The unique identifier of an array job",
