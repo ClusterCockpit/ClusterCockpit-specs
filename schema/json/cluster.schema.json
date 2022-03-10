@@ -69,14 +69,14 @@
                     }
                 }
             },
-            "partitions": {
-                "description": "Array of cluster partitions",
+            "subClusters": {
+                "description": "Array of cluster hardware partitions",
                 "type": "array",
                 "items": {
                     "type": "object",
                     "properties":{
                         "name": {
-                            "description": "Metric name",
+                            "description": "Hardware partition name",
                             "type": "string"
                         },
                         "processorType": {
@@ -106,6 +106,10 @@
                         "memoryBandwidth": {
                             "description": "Theoretical node peak memory bandwidth in GB/s",
                             "type": "integer"
+                        },
+                        "nodes": {
+                            "description": "Node list expression",
+                            "type": "string"
                         },
                         "topology": {
                             "description": "Node topology",

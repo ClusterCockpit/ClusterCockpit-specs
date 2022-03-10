@@ -13,7 +13,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "flops_any": {
@@ -36,7 +36,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "mem_bw": {
@@ -53,7 +53,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "net_bw": {
@@ -65,7 +65,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "file_bw": {
@@ -77,7 +77,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "ipc": {
@@ -100,7 +100,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "cpu_used": {
@@ -123,7 +123,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "cpu_load": {
@@ -146,7 +146,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "flops_dp": {
@@ -169,7 +169,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "flops_sp": {
@@ -192,7 +192,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "vectorization_ratio": {
@@ -215,7 +215,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "cpu_power": {
@@ -229,7 +229,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "mem_power": {
@@ -243,7 +243,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "acc_utilization": {
@@ -254,7 +254,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "acc_mem_used": {
@@ -265,7 +265,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "acc_power": {
@@ -276,7 +276,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "clock": {
@@ -299,7 +299,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "eth_read_bw": {
@@ -310,7 +310,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "eth_write_bw": {
@@ -321,7 +321,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_read_bw": {
@@ -332,7 +332,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_write_bw": {
@@ -343,7 +343,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_read_req": {
@@ -354,7 +354,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_write_req": {
@@ -365,7 +365,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_inodes": {
@@ -376,7 +376,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_accesses": {
@@ -387,7 +387,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_fsync": {
@@ -398,7 +398,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_create": {
@@ -409,7 +409,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_open": {
@@ -420,7 +420,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_close": {
@@ -431,7 +431,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "pfs_seek": {
@@ -442,7 +442,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "fs_read_bw": {
@@ -453,7 +453,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "fs_write_bw": {
@@ -464,7 +464,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "fs_inodes": {
@@ -475,7 +475,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "fs_accesses": {
@@ -486,7 +486,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "ic_rcv_packets": {
@@ -497,7 +497,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "ic_send_packets": {
@@ -508,7 +508,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "ic_read_bw": {
@@ -519,7 +519,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         },
         "ic_write_bw": {
@@ -530,7 +530,7 @@
                 }
             },
             "required": [
-                "nodes"
+                "node"
             ]
         }
     },

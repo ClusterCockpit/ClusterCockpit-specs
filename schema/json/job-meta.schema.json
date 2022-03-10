@@ -21,7 +21,7 @@
             "type": "string"
         },
         "partition": {
-            "description": "The cluster partition id to which the job was submitted",
+            "description": "The Slurm partition to which the job was submitted",
             "type": "integer"
         },
         "arrayJobId": {
@@ -66,8 +66,9 @@
             "enum": [
                 "completed",
                 "failed",
-                "canceled",
+                "cancelled",
                 "stopped",
+                "out_of_memory",
                 "timeout"
             ]
         },
