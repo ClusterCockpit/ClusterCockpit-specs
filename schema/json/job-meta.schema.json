@@ -133,9 +133,13 @@
                     "type": "string",
                     "description": "The batch script of the job"
                 },
-                "slurmdata": {
+                "jobName": {
                     "type": "string",
-                    "description": "Additional Slurm information"
+                    "description": "Slurm Job name"
+                },
+                "slurmInfo": {
+                    "type": "string",
+                    "description": "Additional slurm infos as show by scontrol show job"
                 }
             }
         },
@@ -323,6 +327,7 @@
         "user",
         "project",
         "cluster",
+        "subCluster",
         "partition",
         "numNodes",
         "exclusive",
