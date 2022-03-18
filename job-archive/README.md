@@ -35,7 +35,7 @@ overflowing job ids.
 
 Example:
 
-For the job ID 1034871 the directory path is ./1034/871/<timestamp>/.
+For the job ID 1034871 the directory path is `./1034/871/<timestamp>/`.
 
 The job data consists of two files:
 
