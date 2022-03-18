@@ -1,14 +1,6 @@
-# ClusterCockpit Standardization of APIs and data formats
+# Specifications of datastructures, interfaces, and file formats
 
-## RESTful API specifications
-
-The specifications are defined following the [OpenAPI Initiative](https://www.openapis.org) format standard.
-
-## Data exchange formats
-
-Main data exchange format is JSON.
-The specifications are defined following the [JSON schema](https://json-schema.org) format standard.
-
-## Database schema
-
-Recommended minimal SQL database schema for job meta data.
+* **Generic datastructure specifications**: To be used in applications, as payloads in apis, or as file formats.
+* **API Interfaces offered by ClusterCockpit**
+* **HPC Job-Archive specification**
+* **SQL Jobs Table Schema** 
