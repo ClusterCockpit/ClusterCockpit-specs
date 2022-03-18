@@ -1,55 +1,46 @@
 # Overview
 
-ClusterCockpit uses the InfluxData line-protocol for collecting the node metric
-data.
+ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between the its components. The line-protocol is a test-based representation of a metric with a value, time and describing tags. All metrics have the following format (if written to `stdout`):
 
 ```
-<measurement>,<tag set> <field set> <timestamp [s]>
+<measurement>,<tag set> <field set> <timestamp>
 ```
 
-**Note**: This is a proposal for a different way to send & store the data!
+where `<tag set>` and `<field set>` are comma-separated lists of `key=value` entries. In a mind-model, think about tags as `indices` in the database for faster lookup and the `<field set>` as metric values.
 
-# Supported measurements:
-* `flops_sp`
-* `flops_dp`
-* `flops_any`
-* `load`
-* `mem_used`
-* `ipc`
-* `mem_bw`
-* `power`
-* `clock`
-* ...
 
-# Mandatory tags per measurement:
+# Line-protocol in the ClusterCockpit ecosystem
+
+In ClusterCockpit we limit the flexibility of the InfluxData line-protocol slightly. The idea is to keep the format evaluatable by different components.
+
+Each metric is identifiable by the `measurement` (= metric name), the `hostname`, the `type` and, if required, a `type-id`.
+
+## Mandatory tags per measurement:
 * `hostname`
-* `type` in `[node, socket, cpu, (accelerator)]`
+* `type` in `[node, socket, die, memoryDomain, llb, core, hwthread, (accelerator)]`
 * `type-id` for further specifying the type like CPU socket or HW Thread identifier
 
-# Optional tags depending on the measurment:
-* `device` for measurement `file_bw`
-* `device` for `net_bw` if splitting into `ib_bw` and `eth_bw` is not enough
+## Mandatory fields per measurement:
+The field key is always `value`. No other field keys are evaluated by the ClusterCockpit ecosystem.
 
-# Fields per measurement:
-The field key is always `value`
+## Optional tags depending on the measurment:
 
-# Optional measurements:
-If a fixed aggregation to a coarser granularity is desired, add addtional measurments to the same measurement with different tags:
-```
-mem_bw,hostname=X,type="socket",type-id=0 value=100.0
-mem_bw,hostname=X,type="socket",type-id=1 value=200.0
-```
+In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= sub type) and `stype-id` in the future. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`
 
-can additionally be send/stored as:
+## Supported measurements
 
-```
-mem_bw,hostname=X,type="node",type-id=0 value=300.0
-```
+While the measurements (metric names) can be chosen freely, there is a basic set of measurements which should be present as long as you navigate in the ClusterCockpit ecosystem
 
-It is discussable where the type of aggregation should be encoded if required, either by adding a tag like `agg={min,max,sum,avg}` or using different fields like:
+* `flops_sp`: Single-precision floating point rate in `Flops/s`
+* `flops_dp`: Double-precision floating point rate in `Flops/s`
+* `flops_any`: Combined floating point rate in `Flops/s` (often `(flops_dp * 2) + flops_sp`)
+* `cpu_load`: The 1m load of the system (see `/proc/loadavg`)
+* `mem_used`: The amount of memory used by applications (see `/proc/meminfo`)
+* `ipc`: instructions-per-cycle metric
+* `mem_bw`: Main memory bandwidth (read and write) in `MByte/s`
+* `cpu_power`: Power consumption of the whole CPU package
+* `mem_power`: Power consumption of the memory subsystem
+* `clock`: CPU clock in `MHz`
+* ...
 
-```
-mem_bw,hostname=X,type="node",type-id=0 sum=300.0,min=100.0,max=200.0,avg=150.0
-```
-
-I prefer the separate `agg` tag because commonly, only a single type of aggregation is done per measurment (mostly `sum` but some require `avg` like `ipc`)
+For the whole list, see [job-data schema](../../datastructures/job-data.schema.json)
