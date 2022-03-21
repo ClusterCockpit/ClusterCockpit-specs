@@ -1,4 +1,4 @@
-## Generic database specification
+## Generic datastructure specification
 
 This collection of datastructures descriptions is intended to be used
 as datastructures in application, payloads in apis, and file formats.
