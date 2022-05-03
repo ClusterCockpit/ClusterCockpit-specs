@@ -55,6 +55,16 @@
                         "description": "Frequency of timeseries points",
                         "type": "integer"
                     },
+                    "aggregation": {
+                        "description": "How the metric is aggregated",
+                        "type": "string",
+                        "enum": [
+                            "sum",
+                            "avg",
+                            null
+                        ]
+
+                    },
                     "peak": {
                         "type": "number"
                     },
