@@ -109,9 +109,9 @@
                     },
                     "accelerators": {
                         "type": "array",
-                        "description": "List of of accelerator ids",
+                        "description": "List of of accelerator device ids",
                         "items": {
-                            "type": "integer"
+                            "type": "string"
                         }
                     },
                     "configuration": {
