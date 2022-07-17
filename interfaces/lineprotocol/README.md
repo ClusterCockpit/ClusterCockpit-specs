@@ -1,6 +1,6 @@
 # Overview
 
-ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between the its components. The line-protocol is a test-based representation of a metric with a value, time and describing tags. All metrics have the following format (if written to `stdout`):
+ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between its components. The line-protocol is a text-based representation of a metric with a value, time and describing tags. All metrics have the following format (if written to `stdout`):
 
 ```
 <measurement>,<tag set> <field set> <timestamp>
