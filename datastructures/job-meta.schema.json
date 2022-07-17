@@ -48,8 +48,10 @@
             "exclusiveMinimum": 0
         },
         "exclusive": {
-            "description": "Job uses only exclusive nodes",
-            "type": "integer"
+            "description": "Specifies how nodes are shared. 0 - Shared among multiple jobs of multiple users, 1 - Job exclusive, 2 - Shared among multiple jobs of same user",
+            "type": "integer",
+            "exclusiveMinimummum": 0,
+            "maximum": 2
         },
         "monitoringStatus": {
             "description": "State of monitoring system during job run",
