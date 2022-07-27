@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft-07/schema#",
-    "title": "HPC Cluster description",
+    "title": "HPC cluster description",
     "description": "Meta data information of a HPC cluster",
     "type": "object",
     "properties":{
@@ -60,13 +60,12 @@
                         "type": "string",
                         "enum": [
                             "sum",
-                            "avg",
-                            null
+                            "avg"
                         ]
 
                     },
                     "subClusters": {
-                      "description": "Array of cluster hardware partition metric thresholds",
+                        "description": "Array of cluster hardware partition metric thresholds",
                         "type": "array",
                         "items": {
                             "type": "object",
@@ -87,10 +86,22 @@
                                 "alert": {
                                     "type": "number"
                                 }
-                            }
+                            },
+                            "required": [
+                                "name",
+                                "peak",
+                                "caution",
+                                "alert"
+                            ]
                         }
                     }
-                }
+                },
+                "required": [
+                    "name",
+                    "unit",
+                    "scope",
+                    "timestep"
+                ]
             },
             "subClusters": {
                 "description": "Array of cluster hardware partitions",
@@ -239,6 +250,10 @@
                         "name",
                         "metricDataRepository",
                         "metricConfig",
-                        "partitions"
+                        "subClusters"
                     ]
                 }
+            }
+        }
+    }
+}
