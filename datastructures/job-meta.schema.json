@@ -316,8 +316,8 @@
                 }
             },
             "required": [
+                "cpu_used",
                 "mem_used",
-                "cpu_load",
                 "flops_any",
                 "mem_bw",
                 "net_bw",
