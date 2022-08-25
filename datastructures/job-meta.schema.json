@@ -238,66 +238,6 @@
                     "description": "Ethernet write bandwidth",
                     "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
                 },
-                "pfs_read_bw": {
-                    "description": "Parallel file system read bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_write_bw": {
-                    "description": "Parallel file system write bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_read_req": {
-                    "description": "Parallel file system read requests",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_write_req": {
-                    "description": "Parallel file system write requests",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_inodes": {
-                    "description": "Parallel file system inodes used",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_accesses": {
-                    "description": "Parallel file system open and close",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_fsync": {
-                    "description": "Parallel file system fsync",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_create": {
-                    "description": "Parallel file system create",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_open": {
-                    "description": "Parallel file system open",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_close": {
-                    "description": "Parallel file system close",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "pfs_seek": {
-                    "description": "Parallel file system seek",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "fs_read_bw": {
-                    "description": "Local file system read bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "fs_write_bw": {
-                    "description": "Local file system write bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "fs_inodes": {
-                    "description": "Local file system inodes used",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
-                "fs_accesses": {
-                    "description": "Local file system open and close",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
-                },
                 "ic_rcv_packets": {
                     "description": "Network interconnect read packets",
                     "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
@@ -313,15 +253,89 @@
                 "ic_write_bw": {
                     "description": "Network interconnect write bandwidth",
                     "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                },
+                "filesystems": {
+                    "description": "Array of filesystems",
+                    "type": "array",
+                    "items": {
+                        "type": "object",
+                        "properties": {
+                            "name": {
+                                "type": "string"
+                            },
+                            "type": {
+                                "type": "string",
+                                "enum": [
+                                    "nfs",
+                                    "lustre",
+                                    "gpfs",
+                                    "nvme",
+                                    "ssd",
+                                    "hdd",
+                                    "beegfs"
+                                ]
+                            },
+                            "read_bw": {
+                                "description": "File system read bandwidth",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "write_bw": {
+                                "description": "File system write bandwidth",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "read_req": {
+                                "description": "File system read requests",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "write_req": {
+                                "description": "File system write requests",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "inodes": {
+                                "description": "File system write requests",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "accesses": {
+                                "description": "File system open and close",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "fsync": {
+                                "description": "File system fsync",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "create": {
+                                "description": "File system create",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "open": {
+                                "description": "File system open",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "close": {
+                                "description": "File system close",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            },
+                            "seek": {
+                                "description": "File system seek",
+                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                            }
+                        },
+                        "required": [
+                            "name",
+                            "type",
+                            "read_bw",
+                            "write_bw",
+                            "inodes"
+                        ]
+                    },
+                    "minItems": 1
                 }
             },
             "required": [
                 "cpu_used",
                 "mem_used",
                 "flops_any",
-                "mem_bw",
-                "net_bw",
-                "file_bw"
+                "mem_bw"
             ]
         }
     },
@@ -330,12 +344,10 @@
         "user",
         "project",
         "cluster",
-        "subCluster",
         "partition",
         "numNodes",
         "exclusive",
         "startTime",
-        "stopTime",
         "jobState",
         "duration",
         "resources",

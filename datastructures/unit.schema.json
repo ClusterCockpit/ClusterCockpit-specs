@@ -15,6 +15,8 @@
                 "F/s",
                 "CPI",
                 "IPC",
+                "cpu_used",
+                "cpu_load",
                 "Hz"
             ]
         },

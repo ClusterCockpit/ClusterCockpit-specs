@@ -9,18 +9,6 @@
             "description": "Metric unit",
             "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/unit.schema.json"
         },
-        "scope": {
-            "type": "string",
-            "enum": [
-                "node",
-                "hwthread",
-                "core",
-                "memoryDomain",
-                "die",
-                "socket",
-                "accelerator"
-            ]
-        },
         "timestep": {
             "description": "Measurement interval in seconds",
             "type": "integer"
@@ -214,6 +202,7 @@
                 },
                 "required": [
                     "hostname",
+                    "statistics",
                     "data"
                 ]
             }
@@ -221,7 +210,6 @@
     },
     "required": [
         "unit",
-        "scope",
         "timestep",
         "series"
     ]

@@ -69,14 +69,14 @@
                                 "alert"
                             ]
                         }
-                    },
-                    "required": [
-                        "name",
-                        "unit",
-                        "scope",
-                        "timestep"
-                    ]
-                }
+                    }
+                },
+                "required": [
+                    "name",
+                    "unit",
+                    "scope",
+                    "timestep"
+                ]
             }
         },
         "subClusters": {
@@ -202,32 +202,32 @@
                                         "model"
                                     ]
                                 }
-                            },
-                            "required":[
-                                "node",
-                                "socket",
-                                "memoryDomain"
-                            ]
+                            }
                         },
                         "required":[
-                            "name",
-                            "topology",
-                            "processorType",
-                            "socketsPerNode",
-                            "coresPerSocket",
-                            "threadsPerCore",
-                            "flopRateScalar",
-                            "flopRateSimd",
-                            "memoryBandwidth"
+                            "node",
+                            "socket",
+                            "memoryDomain"
                         ]
                     }
                 },
                 "required":[
                     "name",
-                    "metricConfig",
-                    "subClusters"
+                    "topology",
+                    "processorType",
+                    "socketsPerNode",
+                    "coresPerSocket",
+                    "threadsPerCore",
+                    "flopRateScalar",
+                    "flopRateSimd",
+                    "memoryBandwidth"
                 ]
             }
         }
-    }
+    },
+    "required":[
+        "name",
+        "metricConfig",
+        "subClusters"
+    ]
 }
