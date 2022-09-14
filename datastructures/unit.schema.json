@@ -17,7 +17,8 @@
                 "IPC",
                 "cpu_used",
                 "cpu_load",
-                "Hz"
+                "Hz",
+                "W"
             ]
         },
         "prefix": {
