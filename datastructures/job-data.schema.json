@@ -428,8 +428,7 @@
                     "name",
                     "type",
                     "read_bw",
-                    "write_bw",
-                    "inodes"
+                    "write_bw"
                 ]
             },
             "minItems": 1
@@ -478,14 +477,13 @@
         "required": [
             "node"
         ]
-    }
-},
-"required": [
-    "cpu_used",
-    "mem_used",
-    "flops_any",
-    "mem_bw",
-    "net_bw",
-    "file_bw"
-]
+    },
+    "required": [
+        "cpu_used",
+        "mem_used",
+        "flops_any",
+        "mem_bw",
+        "net_bw",
+        "filesystems"
+    ]
 }

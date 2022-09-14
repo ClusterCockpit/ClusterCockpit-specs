@@ -51,7 +51,7 @@
         "exclusive": {
             "description": "Specifies how nodes are shared. 0 - Shared among multiple jobs of multiple users, 1 - Job exclusive, 2 - Shared among multiple jobs of same user",
             "type": "integer",
-            "exclusiveMinimummum": 0,
+            "minimum": 0,
             "maximum": 2
         },
         "monitoringStatus": {
@@ -324,8 +324,7 @@
                             "name",
                             "type",
                             "read_bw",
-                            "write_bw",
-                            "inodes"
+                            "write_bw"
                         ]
                     },
                     "minItems": 1
@@ -344,7 +343,6 @@
         "user",
         "project",
         "cluster",
-        "partition",
         "numNodes",
         "exclusive",
         "startTime",
