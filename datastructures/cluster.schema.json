@@ -77,7 +77,8 @@
                     "scope",
                     "timestep"
                 ]
-            }
+            },
+            "minItems": 1
         },
         "subClusters": {
             "description": "Array of cluster hardware partitions",
@@ -222,7 +223,8 @@
                     "flopRateSimd",
                     "memoryBandwidth"
                 ]
-            }
+            },
+            "minItems": 1
         }
     },
     "required":[
