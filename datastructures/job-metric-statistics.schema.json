@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json",
+    "$id": "job-metric-statistics.schema.json",
     "title": "Job statistics",
     "description": "Format specification for job metric statistics",
     "type": "object",
     "properties": {
         "unit": {
             "description": "Metric unit",
-            "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/unit.schema.json"
+            "$ref": "unit.schema.json"
         },
         "avg": {
             "description": "Job metric average",

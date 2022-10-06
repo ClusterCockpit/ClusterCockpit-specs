@@ -1,6 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-meta.schema.json",
+    "$id": "job-meta.schema.json",
     "title": "Job meta data",
     "description": "Meta data information of a HPC job",
     "type": "object",
@@ -81,11 +81,6 @@
         },
         "startTime": {
             "description": "Start epoch time stamp in seconds",
-            "type": "integer",
-            "exclusiveMinimum": 0
-        },
-        "stopTime": {
-            "description": "Stop epoch time stamp in seconds",
             "type": "integer",
             "exclusiveMinimum": 0
         },
@@ -172,87 +167,87 @@
             "properties": {
                 "mem_used": {
                     "description": "Memory capacity used (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "cpu_load": {
                     "description": "CPU requested core utilization (load 1m) (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "flops_any": {
                     "description": "Total flop rate with DP flops scaled up (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "mem_bw": {
                     "description": "Main memory bandwidth (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "net_bw": {
                     "description": "Total fast interconnect network bandwidth (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "file_bw": {
                     "description": "Total file IO bandwidth (required)",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "ipc": {
                     "description": "Instructions executed per cycle",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "cpu_used": {
                     "description": "CPU active core utilization",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "flops_dp": {
                     "description": "Double precision flop rate",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "flops_sp": {
                     "description": "Single precision flops rate",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "rapl_power": {
                     "description": "CPU power consumption",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "acc_used": {
                     "description": "GPU utilization",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "acc_mem_used": {
                     "description": "GPU memory capacity used",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "acc_power": {
                     "description": "GPU power consumption",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "clock": {
                     "description": "Average core frequency",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "eth_read_bw": {
                     "description": "Ethernet read bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "eth_write_bw": {
                     "description": "Ethernet write bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "ic_rcv_packets": {
                     "description": "Network interconnect read packets",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "ic_send_packets": {
                     "description": "Network interconnect send packet",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "ic_read_bw": {
                     "description": "Network interconnect read bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "ic_write_bw": {
                     "description": "Network interconnect write bandwidth",
-                    "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                    "$ref": "job-metric-statistics.schema.json"
                 },
                 "filesystems": {
                     "description": "Array of filesystems",
@@ -277,47 +272,47 @@
                             },
                             "read_bw": {
                                 "description": "File system read bandwidth",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "write_bw": {
                                 "description": "File system write bandwidth",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "read_req": {
                                 "description": "File system read requests",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "write_req": {
                                 "description": "File system write requests",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "inodes": {
                                 "description": "File system write requests",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "accesses": {
                                 "description": "File system open and close",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "fsync": {
                                 "description": "File system fsync",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "create": {
                                 "description": "File system create",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "open": {
                                 "description": "File system open",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "close": {
                                 "description": "File system close",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             },
                             "seek": {
                                 "description": "File system seek",
-                                "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-statistics.schema.json"
+                                "$ref": "job-metric-statistics.schema.json"
                             }
                         },
                         "required": [
@@ -349,7 +344,6 @@
         "jobState",
         "duration",
         "resources",
-        "tags",
         "statistics"
     ]
 }

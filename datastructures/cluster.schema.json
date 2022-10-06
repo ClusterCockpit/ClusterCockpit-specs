@@ -1,5 +1,6 @@
 {
     "$schema": "http://json-schema.org/draft/2020-12/schema",
+    "$id": "cluster.schema.json",
     "title": "HPC cluster description",
     "description": "Meta data information of a HPC cluster",
     "type": "object",
@@ -20,7 +21,7 @@
                     },
                     "unit": {
                         "description": "Metric unit",
-                        "type": "string"
+                        "$ref": "embedfs://unit.schema.json"
                     },
                     "scope": {
                         "description": "Native measurement resolution",
@@ -37,7 +38,6 @@
                             "sum",
                             "avg"
                         ]
-
                     },
                     "subClusters": {
                         "description": "Array of cluster hardware partition metric thresholds",

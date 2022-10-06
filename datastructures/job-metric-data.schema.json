@@ -1,13 +1,13 @@
 {
     "$schema": "http://json-schema.org/draft/2020-12/schema",
-    "$id": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/job-metric-data.schema.json",
+    "$id": "job-metric-data.schema.json",
     "title": "Job metric data",
     "description": "Metric data of a HPC job",
     "type": "object",
     "properties": {
         "unit": {
             "description": "Metric unit",
-            "$ref": "https://raw.githubusercontent.com/ClusterCockpit/cc-specifications/master/datastructures/unit.schema.json"
+            "$ref": "unit.schema.json"
         },
         "timestep": {
             "description": "Measurement interval in seconds",
