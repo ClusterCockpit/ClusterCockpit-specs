@@ -193,8 +193,8 @@
                     "description": "Instructions executed per cycle",
                     "$ref": "job-metric-statistics.schema.json"
                 },
-                "cpu_used": {
-                    "description": "CPU active core utilization",
+                "cpu_user": {
+                    "description": "CPU user active core utilization",
                     "$ref": "job-metric-statistics.schema.json"
                 },
                 "flops_dp": {
@@ -326,7 +326,8 @@
                 }
             },
             "required": [
-                "cpu_used",
+                "cpu_user",
+                "cpu_load",
                 "mem_used",
                 "flops_any",
                 "mem_bw"
@@ -338,6 +339,7 @@
         "user",
         "project",
         "cluster",
+        "subCluster",
         "numNodes",
         "exclusive",
         "startTime",
