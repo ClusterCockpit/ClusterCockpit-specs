@@ -23,7 +23,7 @@ Each metric is identifiable by the `measurement` (= metric name), the `hostname`
 ## Mandatory fields per measurement:
 The field key is always `value`. No other field keys are evaluated by the ClusterCockpit ecosystem.
 
-## Optional tags depending on the measurment:
+## Optional tags depending on the measurement:
 
 In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= sub type) and `stype-id` in the future. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`
 
