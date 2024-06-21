@@ -1,19 +1,20 @@
 # Overview
 
-ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between its components. The line-protocol is a text-based representation of a metric with a value, time and describing tags. All metrics have the following format (if written to `stdout`):
+ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between its components. The line-protocol is a text-based representation of a metric with a name, time and describing tags. All metrics have the following format (if written to `stdout`):
 
 ```
 <measurement>,<tag set> <field set> <timestamp>
 ```
 
-where `<tag set>` and `<field set>` are comma-separated lists of `key=value` entries. In a mind-model, think about tags as `indices` in the database for faster lookup and the `<field set>` as metric values.
+where `<tag set>` and `<field set>` are comma-separated lists of `key=value` entries. In a mind-model, think about tags as `indices` in the database for faster lookup and the `<field set>` as values.
 
+**Remark**: In the first iteration, we only sent metrics (number values) but we had to extend the specification to messages with different meanings. The below text was changes accordingly. The update is downward-compatible, so for metrics (number values), nothing changed.
 
 # Line-protocol in the ClusterCockpit ecosystem
 
 In ClusterCockpit we limit the flexibility of the InfluxData line-protocol slightly. The idea is to keep the format evaluatable by different components.
 
-Each metric is identifiable by the `measurement` (= metric name), the `hostname`, the `type` and, if required, a `type-id`.
+Each message is identifiable by the `measurement` (= metric name), the `hostname`, the `type` and, if required, a `type-id`.
 
 ## Mandatory tags per measurement:
 * `hostname`
@@ -21,7 +22,13 @@ Each metric is identifiable by the `measurement` (= metric name), the `hostname`
 * `type-id` for further specifying the type like CPU socket or HW Thread identifier
 
 ## Mandatory fields per measurement:
-The field key is always `value`. No other field keys are evaluated by the ClusterCockpit ecosystem.
+
+- Metric: The field key is always `value`
+- Event: The field key is always `event`
+- Log message: The field key is always `log`
+- Control message: The field key is always `log`
+
+No other field keys are evaluated by the ClusterCockpit ecosystem.
 
 ## Optional tags depending on the measurement:
 
