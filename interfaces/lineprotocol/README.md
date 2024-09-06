@@ -1,6 +1,7 @@
 # Overview
 
-ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring metrics between its components. The line-protocol is a text-based representation of a metric with a name, time and describing tags. All metrics have the following format (if written to `stdout`):
+ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring messages between its components. The line-protocol is a text-based representation of a metric/event with a value, time and describing tags. All metrics/events have the following format (if written to `stdout`):
+
 
 ```
 <measurement>,<tag set> <field set> <timestamp>
@@ -10,16 +11,33 @@ where `<tag set>` and `<field set>` are comma-separated lists of `key=value` ent
 
 **Remark**: In the first iteration, we only sent metrics (number values) but we had to extend the specification to messages with different meanings. The below text was changes accordingly. The update is downward-compatible, so for metrics (number values), nothing changed.
 
+
 # Line-protocol in the ClusterCockpit ecosystem
 
 In ClusterCockpit we limit the flexibility of the InfluxData line-protocol slightly. The idea is to keep the format evaluatable by different components.
 
 Each message is identifiable by the `measurement` (= metric name), the `hostname`, the `type` and, if required, a `type-id`.
 
-## Mandatory tags per measurement:
+
+
+## Mandatory tags per message:
 * `hostname`
-* `type` in `[node, socket, die, memoryDomain, llb, core, hwthread, (accelerator)]`
-* `type-id` for further specifying the type like CPU socket or HW Thread identifier
+* `type`
+    - `node`
+    - `socket`
+    - `die`
+    - `memoryDomain`
+    - `llc`
+    - `core`
+    - `hwthread`
+    - `accelerator`
+* `type-id` for further specifying the type like CPU socket  or HW Thread identifier
+
+Although no `type-id` is required if `type=node`, it is recommended to send `type=node,type-id=0`.
+
+### Optional tags depending on the message:
+
+In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= "sub type") and `stype-id`. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`.
 
 ## Mandatory fields per measurement:
 
@@ -30,11 +48,14 @@ Each message is identifiable by the `measurement` (= metric name), the `hostname
 
 No other field keys are evaluated by the ClusterCockpit ecosystem.
 
-## Optional tags depending on the measurement:
 
-In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= sub type) and `stype-id` in the future. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`
+## Message types
 
-## Supported measurements
+There exist different message types in the ClusterCockpit ecosystem, all specified using the InfluxData line-protocol.
+
+### Metrics
+
+**Identification:** `value=X` field with `X` being a number
 
 While the measurements (metric names) can be chosen freely, there is a basic set of measurements which should be present as long as you navigate in the ClusterCockpit ecosystem
 
@@ -51,3 +72,20 @@ While the measurements (metric names) can be chosen freely, there is a basic set
 * ...
 
 For the whole list, see [job-data schema](../../datastructures/job-data.schema.json)
+
+
+### Events
+
+**Identification:** `event="X"` field with `"X"` being a string
+
+### Controls
+
+**Identification:** 
+- `control="X"` field with `"X"` being a string
+- `method` tag is either `GET` or `PUT`
+
+### Logs
+
+**Identification:** `log="X"` field with `"X"` being a string
+
+
