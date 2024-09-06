@@ -33,18 +33,18 @@ Although no `type-id` is required if `type=node`, it is recommended to send `typ
 
 ### Optional tags depending on the message:
 
-In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= "sub type") and `stype-id`. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`
+In some cases, optional tags are required like `filesystem`, `device` or `version`. While you are free to do that, the ClusterCockpit components in the stack above will recognize `stype` (= "sub type") and `stype-id`. So `filesystem=/homes` should be better specified as `stype=filesystem,stype-id=/homes`.
 
 ## Mandatory fields per measurement:
-The field key is always `value`. No other field keys are evaluated by the ClusterCockpit ecosystem.
+Only the single field of each message type (`value`, `event`, `control` or `log`) is mandatory. No other field keys are evaluated by the ClusterCockpit ecosystem but can be used for other purposes.
 
 ## Message types
 
-There exist different message types in the ClusterCockpit ecosystem.
+There exist different message types in the ClusterCockpit ecosystem, all specified using the InfluxData line-protocol.
 
 ### Metrics
 
-**Identification:** `value=X` with `X` being a number
+**Identification:** `value=X` field with `X` being a number
 
 While the measurements (metric names) can be chosen freely, there is a basic set of measurements which should be present as long as you navigate in the ClusterCockpit ecosystem
 
@@ -65,11 +65,16 @@ For the whole list, see [job-data schema](../../datastructures/job-data.schema.j
 
 ### Events
 
-**Identification:** `value="X"` with `"X"` being a string
+**Identification:** `event="X"` field with `"X"` being a string
 
 ### Controls
 
-**Identification:** `method` tag is either `GET` or `PUT`
+**Identification:** 
+- `control="X"` field with `"X"` being a string
+- `method` tag is either `GET` or `PUT`
 
+### Logs
+
+**Identification:** `log="X"` field with `"X"` being a string
 
 
