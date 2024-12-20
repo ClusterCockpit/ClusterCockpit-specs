@@ -1,5 +1,8 @@
 # Specifications for datastructures, interfaces, and file formats
 
+Since most of the specifications are relevant and implemented in `cc-backend`
+they will use the same versioning.
+
 * **[Generic datastructure
 specifications](https://github.com/ClusterCockpit/cc-specifications/tree/master/datastructures)**:
 To be used in applications, as payloads in apis, or as file formats.
