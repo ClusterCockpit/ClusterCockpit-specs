@@ -2,25 +2,56 @@
 
 ## Overview
 
-ClusterCockpit uses the [InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/) for transferring messages between its components. The line-protocol is a text-based representation of a metric/event with a value, time and describing tags. All metrics/events have the following format (if written to `stdout`):
+ClusterCockpit uses the
+[InfluxData line-protocol](https://docs.influxdata.com/influxdb/v2.1/reference/syntax/line-protocol/)
+for transferring messages between its components. The line-protocol is a
+text-based representation of a metric/event with a value, time and describing
+tags. All metrics/events have the following format (if written to `stdout`):
 
-```
+```txt
 <measurement>,<tag set> <field set> <timestamp>
 ```
 
-where `<tag set>` and `<field set>` are comma-separated lists of `key=value`
+Where `<tag set>` and `<field set>` are comma-separated lists of `key=value`
 entries. In a mind-model, think about tags as `indices` in the database for
 faster lookup and the `<field set>` as values.
 
 **Remark**: In the first iteration, we only sent metrics (number values) but we
-had to extend the specification to messages with different meanings. The below
-text was changes accordingly. The update is downward-compatible, so for metrics
-(number values), nothing changed.
+extended the specification to messages with different purposes. The below
+text was changed accordingly. The update is backward-compatible, for metrics
+(number values), nothing has changed.
 
-## Line-protocol in the ClusterCockpit ecosystem
+## Message categories
+
+There exist the following line line-protocol message flavors:
+
+* Metric: The field key is `value`
+* Event: The field key is `event`
+* Log message: The field key is `log`
+* Control message: The field key is `control`
+
+## Messaging
+
+ClusterCockpit uses the NATS messaging network, with the option to support other
+messaging frameworks in the future. To distinguish between different message
+types and easily filter the types an application is interested in the following
+subject hierarchy tree is used:
+
+```txt
+<cluster name>. |
+                --- metrics
+                |
+                --- events.[job]
+                |
+                --- log.[ccb, ccms, ccmc, ccem, ccnc]
+                |
+                --- control
+```
+
+## Metric messages
 
 In ClusterCockpit we limit the flexibility of the InfluxData line-protocol
-slightly. The idea is to keep the format evaluatable by different components.
+slightly. The idea is to keep the format usable by different components.
 
 Each message is identifiable by the `measurement` (= metric name), the
 `hostname`, the `type` and, if required, a `type-id`.
@@ -48,15 +79,6 @@ In some cases, optional tags are required like `filesystem`, `device` or
 stack above will recognize `stype` (= "sub type") and `stype-id`. So
 `filesystem=/homes` should be better specified as
 `stype=filesystem,stype-id=/homes`.
-
-### Mandatory fields per measurement
-
-* Metric: The field key is always `value`
-* Event: The field key is always `event`
-* Log message: The field key is always `log`
-* Control message: The field key is always `log`
-
-No other field keys are evaluated by the ClusterCockpit ecosystem.
 
 ### Message types
 
@@ -88,6 +110,12 @@ For the whole list, see [job-data schema](../../datastructures/job-data.schema.j
 #### Events
 
 **Identification:** `event="X"` field with `"X"` being a string
+The name (measurement) of the event message can further specialize the purpose
+(similar to REST endpoints), e.g. `start_job`, and `stop_job` for events of type
+job.
+
+Example start job event:
+TBD
 
 #### Controls
 
